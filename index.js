@@ -94,9 +94,9 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
                     if (supportedActivities.includes(type)) {
                         const activities = scout.activities;
                         if (type === 'Camping Log') {
-                            activities.addCamping( new ScoutbookCampingLog(date,Nights,location));
+                            activities.addCamping( new ScoutbookCampingLog(date,Nights,location, ''));
                         } else if (type === 'Hiking Log') {
-                            activities.addHiking(new ScoutbookHikingLog(date,Miles,location));
+                            activities.addHiking(new ScoutbookHikingLog(date,Miles,location, ''));
                         } else if (type === 'Service Log') {
                             serviceList.push({scout: scout, date: date, hours: Hours, location: location});
                         } else if (type === 'Conservation Service Log') {
@@ -112,7 +112,7 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
                     conservation = matchService(service, conservationList[i])
                 }
                 let newService = new ScoutbookServiceLog(service.date,
-                    service.hours,service.location);
+                    service.hours,service.location, '');
                     newService.conservation = conservation;
                 activities.addService(newService);
             })
