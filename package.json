@@ -1,0 +1,21 @@
+{
+  "name": "ia-activity-importer",
+  "version": "0.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "scoutbook-activities": "github:troop66matawan/scoutbook-activities#master",
+    "scoutbook-scout": "github:troop66matawan/scoutbook-scout#master"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/troop66matawan/scoutbook-activities/issues"
+  },
+  "homepage": "https://github.com/troop66matawan/scoutbook-activities#readme"
+}
