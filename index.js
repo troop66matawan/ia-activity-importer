@@ -36,6 +36,10 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
                     (name.middleInitial !== undefined && name.middleInitial === s.middleName.substr(0,1))) {
                     return s;
                 }
+                if (s.nickname === name.firstName && s.lastName === name.lastName &&
+                    (name.middleInitial !== undefined && name.middleInitial === s.middleName.substr(0,1))) {
+                    return s;
+                }
             }
         }
         return scout;
