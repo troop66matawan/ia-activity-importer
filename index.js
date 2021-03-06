@@ -90,6 +90,7 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
                 const Hours = activityRecord['Hours'];
 
                 const location = activityRecord['Location'];
+                const notes = activityRecord['Notes'];
 
                 const scoutName = deconstructName(name);
                 let scout = findScout(scouts, scoutName);
@@ -98,13 +99,13 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
                     if (supportedActivities.includes(type)) {
                         const activities = scout.activities;
                         if (type === 'Camping Log') {
-                            activities.addCamping( new ScoutbookCampingLog(date,Nights,location, ''));
+                            activities.addCamping( new ScoutbookCampingLog(date,Nights,location, notes));
                         } else if (type === 'Hiking Log') {
-                            activities.addHiking(new ScoutbookHikingLog(date,Miles,location, ''));
+                            activities.addHiking(new ScoutbookHikingLog(date,Miles,location, notes));
                         } else if (type === 'Service Log') {
-                            serviceList.push({scout: scout, date: date, hours: Hours, location: location});
+                            serviceList.push({scout: scout, date: date, hours: Hours, location: location, notes: notes});
                         } else if (type === 'Conservation Service Log') {
-                            conservationList.push({scout: scout, date: date, hours: Hours, location: location});
+                            conservationList.push({scout: scout, date: date, hours: Hours, location: location, notes: notes});
                         }
                     }
                 }
@@ -116,7 +117,7 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
                     conservation = matchService(service, conservationList[i])
                 }
                 let newService = new ScoutbookServiceLog(service.date,
-                    service.hours,service.location, '');
+                    service.hours,service.location, service.notes);
                     newService.conservation = conservation;
                 activities.addService(newService);
             })
