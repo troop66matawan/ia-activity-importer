@@ -32,12 +32,10 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
             for (var i=0; i < scoutKeys.length; i++) {
                 const k = scoutKeys[i];
                 const s = scouts[k];
-                if (s.firstName === name.firstName && s.lastName === name.lastName &&
-                    (name.middleInitial !== undefined && name.middleInitial === s.middleName.substr(0,1))) {
+                if (s.firstName === name.firstName && s.lastName === name.lastName ) {
                     return s;
                 }
-                if (s.nickname === name.firstName && s.lastName === name.lastName &&
-                    (name.middleInitial !== undefined && name.middleInitial === s.middleName.substr(0,1))) {
+                if (s.nickname === name.firstName && s.lastName === name.lastName ) {
                     return s;
                 }
             }
