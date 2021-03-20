@@ -56,8 +56,10 @@ exports.scoutbook_ia_activities_importer = function (scouts, importPath) {
                     } else if (tokens.length === 3) {
                         rval.middleInitial = tokens[1];
                         rval.lastName = tokens[2];
-                    }
-                }
+                    } else if (tokens.length === 4) {
+                        rval.middleInitial = tokens[1];
+                        rval.lastName = tokens[2] + ' ' + tokens[3];
+                    }                }
             }
         }
         return rval;
